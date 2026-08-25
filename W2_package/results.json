@@ -1,0 +1,134 @@
+{
+  "summary": {
+    "started_at": 1787143868.0512068,
+    "elapsed_seconds": 6.111325263977051,
+    "n_questions": 20,
+    "n_succeeded": 20,
+    "n_retries_total": 0,
+    "total_cost_usd": 0.0020000000000000005,
+    "fail_rate": 0.0,
+    "use_fake": true
+  },
+  "answers": [
+    {
+      "question": "What is retrieval-augmented generation in one sentence?",
+      "text": "(simulated answer for: What is retrieval-augmented generation in one sentence?...)",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "Name three real-world uses of vector databases.",
+      "text": "Vector databases power semantic search, RAG context retrieval, and similarity-based recommendation systems.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "Why might an LLM produce confident but wrong answers?",
+      "text": "(simulated answer for: Why might an LLM produce confident but wrong answers?...)",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "What is a Pydantic BaseModel and how does it differ from a dataclass?",
+      "text": "A Pydantic BaseModel validates types and constraints at construction \u2014 invalid data is caught at the door, not three function calls later.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "Explain async and await in Python in two sentences.",
+      "text": "async and await are Python keywords for cooperative concurrency. `async def` creates a coroutine; `await` pauses it until another coroutine completes.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "What's the difference between asyncio.gather and a sequential await loop?",
+      "text": "async and await are Python keywords for cooperative concurrency. `async def` creates a coroutine; `await` pauses it until another coroutine completes.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "How does exponential backoff differ from constant-interval retry?",
+      "text": "Exponential backoff waits 1, 2, 4, 8... seconds between retries \u2014 far gentler on a struggling API than constant-interval retry.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "Why is JSON-formatted logging better than plain text for production?",
+      "text": "(simulated answer for: Why is JSON-formatted logging better than plain text for pro...)",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "What does the @app.post decorator do in FastAPI?",
+      "text": "The @app.post('/path') decorator registers an async function as a POST endpoint handler at the given path.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "What is the role of a foreign key in a SQLite schema?",
+      "text": "A foreign key declares that a column references the primary key of another table, enforcing referential integrity between rows.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "Why should API keys be loaded from environment variables",
+      "text": "Loading API keys from environment variables keeps them out of source control and makes per-environment rotation trivial.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "What are the main steps in a typical RAG pipeline?",
+      "text": "RAG combines retrieval over a document corpus with an LLM, so answers are grounded in real sources rather than the model's training data alone.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "What does HTTP status code 422 mean?",
+      "text": "HTTP 422 Unprocessable Entity means the request was well-formed JSON but failed semantic validation \u2014 usually a field type or constraint violation.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "Why do we use parameterised SQL queries instead of f-string concatenation?",
+      "text": "Parameterised SQL queries (`?` placeholders) prevent injection by sending the query template and values as separate channels.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "What is the difference between SELECT and INSERT in SQL?",
+      "text": "SELECT reads rows from a table; INSERT writes new rows into one. SELECT is idempotent; INSERT changes state.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "Explain what dependency injection means in software design.",
+      "text": "Dependency injection passes a component's dependencies in from outside rather than constructing them internally \u2014 makes testing and substitution easier.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "What is the purpose of a unit test?",
+      "text": "A unit test exercises one function or method in isolation, asserting that for a given input it produces the expected output or side effect.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "How does a Python virtual environment help with package management?",
+      "text": "A Python virtual environment is an isolated installation directory \u2014 packages installed in one venv don't affect another or the system Python.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "What does \"rate limiting\" mean in the context of APIs?",
+      "text": "Rate limiting caps how many requests a client can make per time window, protecting the API from overload and unfair use.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    },
+    {
+      "question": "Name three reasons an LLM might hallucinate.",
+      "text": "LLMs hallucinate when they produce confident text that isn't grounded in their training data or any provided context.",
+      "cost_usd": 0.0001,
+      "retries": 0
+    }
+  ]
+}
