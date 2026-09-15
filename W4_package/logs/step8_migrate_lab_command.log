@@ -1,0 +1,30 @@
+STEP:        step8_migrate_lab_command
+DESCRIPTION: scripts/migrate_store.py — EXACT lab guide invocation
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:54+00:00
+COMMAND:
+    set -e
+        rm -f /tmp/_w4_migrate_test.db
+        # Exact lab guide command (Step 2e): python scripts/migrate_store.py <db-path>
+        python scripts/migrate_store.py /tmp/_w4_migrate_test.db
+        # Verify the schema landed
+        python -c "
+    import sqlite3
+    conn = sqlite3.connect('/tmp/_w4_migrate_test.db')
+    cols = [r[1] for r in conn.execute('PRAGMA table_info(answers)').fetchall()]
+    print(f'columns after migration: {cols}')
+    for c in ('model', 'confidence', 'sources_json', 'schema_version'):
+        assert c in cols, f'missing W4 column: {c}'
+    print('PASS — all W4 columns present')
+    "
+        rm -f /tmp/_w4_migrate_test.db
+--- OUTPUT ---
+Migrated: /tmp/_w4_migrate_test.db
+  Columns before : (none — table created)
+  Columns after  : ['id', 'question', 'content', 'retries', 'cost_usd', 'created_at', 'model', 'confidence', 'sources_json', 'schema_version']
+  Added          : ['id', 'question', 'content', 'retries', 'cost_usd', 'created_at', 'model', 'confidence', 'sources_json', 'schema_version']
+columns after migration: ['id', 'question', 'content', 'retries', 'cost_usd', 'created_at', 'model', 'confidence', 'sources_json', 'schema_version']
+PASS — all W4 columns present
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

@@ -1,0 +1,17 @@
+STEP:        step3_answer_w3_compat
+DESCRIPTION: W3-shape constructor still works (additive change)
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:45+00:00
+COMMAND:
+    python -c "
+    from src.pipeline.models import Answer
+    # A W3 caller only supplies three fields — must keep working.
+    a = Answer(content='Hello.', cost_usd=0.001, retries=0)
+    print('W3 shape OK:', a.model_dump_json())
+    assert a.content == 'Hello.'
+    "
+--- OUTPUT ---
+W3 shape OK: {"content":"Hello.","cost_usd":0.001,"retries":0,"confidence":1.0,"sources":[],"schema_version":"v1"}
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

@@ -1,0 +1,25 @@
+STEP:        step1_layout_complete
+DESCRIPTION: Every canonical W4 file at expected path
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:45+00:00
+COMMAND:
+    for f in src/api/main.py src/pipeline/pipeline.py src/pipeline/models.py src/pipeline/cost.py src/pipeline/store.py src/pipeline/settings.py tests/test_cost.py tests/test_pipeline_w4.py tests/conftest.py scripts/migrate_store.py scripts/compare_models.py pytest.ini data/questions.csv; do
+            if [ -f "$f" ]; then echo "  ✓  $f"; else echo "  ✗  MISSING: $f" && exit 1; fi
+        done
+--- OUTPUT ---
+  ✓  src/api/main.py
+  ✓  src/pipeline/pipeline.py
+  ✓  src/pipeline/models.py
+  ✓  src/pipeline/cost.py
+  ✓  src/pipeline/store.py
+  ✓  src/pipeline/settings.py
+  ✓  tests/test_cost.py
+  ✓  tests/test_pipeline_w4.py
+  ✓  tests/conftest.py
+  ✓  scripts/migrate_store.py
+  ✓  scripts/compare_models.py
+  ✓  pytest.ini
+  ✓  data/questions.csv
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

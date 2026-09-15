@@ -1,0 +1,40 @@
+STEP:        step5_answer_tool
+DESCRIPTION: ANSWER_TOOL schema is well-formed
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:46+00:00
+COMMAND:
+    python -c "
+    import sys; sys.path.insert(0, '.')
+    from src.pipeline.pipeline import ANSWER_TOOL
+    import json
+    print(json.dumps(ANSWER_TOOL, indent=2)[:500])
+    # Should be a valid OpenAI tool schema
+    assert ANSWER_TOOL['type'] == 'function'
+    assert 'function' in ANSWER_TOOL
+    assert 'name' in ANSWER_TOOL['function']
+    assert 'parameters' in ANSWER_TOOL['function']
+    assert ANSWER_TOOL['function']['name'] == 'answer_question'
+    print('PASS — well-formed tool schema with name:', ANSWER_TOOL['function']['name'])
+    "
+--- OUTPUT ---
+{
+  "type": "function",
+  "function": {
+    "name": "answer_question",
+    "description": "Return a structured answer with content, confidence, and sources.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The answer in 2-4 sentences."
+        },
+        "confidence": {
+          "type": "number",
+          "description": "How confident you are in the answer, 0.0 to 1.0."
+        },
+        "sources": {
+PASS — well-formed tool schema with name: answer_question
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

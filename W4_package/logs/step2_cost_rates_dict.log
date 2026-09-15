@@ -1,0 +1,19 @@
+STEP:        step2_cost_rates_dict
+DESCRIPTION: RATES dict contains expected model entries
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:45+00:00
+COMMAND:
+    python -c "
+    from src.pipeline.cost import RATES
+    print('models in RATES:', sorted(RATES.keys()))
+    assert 'gpt-4o-mini' in RATES, 'gpt-4o-mini missing'
+    assert 'gpt-4o' in RATES, 'gpt-4o missing'
+    mini_rate = RATES['gpt-4o-mini']
+    print('gpt-4o-mini rates:', mini_rate)
+    "
+--- OUTPUT ---
+models in RATES: ['gpt-4o', 'gpt-4o-mini', 'llama3.2:3b']
+gpt-4o-mini rates: (0.15, 0.6)
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

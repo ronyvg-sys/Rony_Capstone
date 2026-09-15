@@ -1,0 +1,16 @@
+STEP:        step3_question_shape
+DESCRIPTION: Question has 'question' field
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:45+00:00
+COMMAND:
+    python -c "
+    from src.pipeline.models import Question
+    q = Question(question='What is RAG?')
+    print(f'Question: {q.model_dump()}')
+    assert q.question == 'What is RAG?'
+    "
+--- OUTPUT ---
+Question: {'question': 'What is RAG?'}
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

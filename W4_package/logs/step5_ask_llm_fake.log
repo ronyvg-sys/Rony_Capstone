@@ -1,0 +1,32 @@
+STEP:        step5_ask_llm_fake
+DESCRIPTION: ask_llm with use_fake=True returns 6-field Answer
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:47+00:00
+COMMAND:
+    python -c "
+    import sys, asyncio; sys.path.insert(0, '.')
+    from src.pipeline.pipeline import ask_llm
+    from src.pipeline.models import Question
+    from src.pipeline.settings import Settings
+    s = Settings(use_fake=True)
+    a = asyncio.run(ask_llm(Question(question='What is RAG?'), settings=s))
+    print(f'type:           {type(a).__name__}')
+    print(f'content head:   {a.content[:80]!r}')
+    print(f'cost_usd:       {a.cost_usd}')
+    print(f'retries:        {a.retries}')
+    print(f'confidence:     {a.confidence}')
+    print(f'sources:        {a.sources}')
+    print(f'schema_version: {a.schema_version!r}')
+    assert a.schema_version == 'v1'
+    "
+--- OUTPUT ---
+type:           Answer
+content head:   '[FAKE] What is RAG?'
+cost_usd:       0.0
+retries:        0
+confidence:     1.0
+sources:        []
+schema_version: 'v1'
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

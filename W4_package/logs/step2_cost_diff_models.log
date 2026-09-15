@@ -1,0 +1,21 @@
+STEP:        step2_cost_diff_models
+DESCRIPTION: gpt-4o is more expensive than gpt-4o-mini
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:45+00:00
+COMMAND:
+    python -c "
+    from src.pipeline.cost import compute_cost_usd
+    mini = compute_cost_usd('gpt-4o-mini', 1000, 500)
+    full = compute_cost_usd('gpt-4o',      1000, 500)
+    print(f'gpt-4o-mini @ 1k/500: ${mini:.6f}')
+    print(f'gpt-4o      @ 1k/500: ${full:.6f}')
+    print(f'ratio:                {full/mini:.2f}x')
+    assert full > mini, 'expected gpt-4o > gpt-4o-mini in cost'
+    "
+--- OUTPUT ---
+gpt-4o-mini @ 1k/500: 
+gpt-4o      @ 1k/500: 
+ratio:                16.67x
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

@@ -1,0 +1,47 @@
+"""W4 STARTER — src/pipeline/cost.py
+
+Real cost computation. response.usage tells you tokens; this module turns
+tokens into USD.
+
+Lab Step 2c builds this out.
+"""
+
+# Order-of-magnitude rates as of late 2025. Confirm against
+# https://artificialanalysis.ai before quoting in production.
+# These are USD per 1M tokens.
+RATES = {
+    # TODO Step 2c — fill in the rates for the two models you'll use in the lab.
+    # Each entry is (input_rate_per_million_usd, output_rate_per_million_usd).
+    #
+    # "gpt-4o-mini": (..., ...),
+    # "gpt-4o":      (..., ...),
+}
+
+
+def compute_cost_usd(model: str, prompt_tokens: int, completion_tokens: int) -> float:
+    """Convert a usage tuple into USD.
+
+    Args:
+        model: One of the keys in RATES.
+        prompt_tokens: From response.usage.prompt_tokens.
+        completion_tokens: From response.usage.completion_tokens.
+
+    Returns:
+        Cost in USD as a float. Returns 0.0 if the model isn't known
+        (don't raise — that would break batch runs).
+
+    Examples:
+        # gpt-4o-mini at $0.15/M in, $0.60/M out
+        # 100 prompt tokens + 50 completion tokens
+        # = (100 * 0.15 + 50 * 0.60) / 1_000_000
+        # = (15 + 30) / 1_000_000
+        # = 0.000045 USD
+    """
+    # TODO Step 2c — implement the cost formula.
+    #
+    # Steps:
+    # 1) Look up the model in RATES. If missing, return 0.0.
+    # 2) Multiply prompt_tokens × in_rate, completion_tokens × out_rate.
+    # 3) Divide by 1_000_000 (rates are per-million).
+    # 4) Return the float.
+    raise NotImplementedError("Step 2c — fill this in")

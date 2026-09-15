@@ -1,0 +1,25 @@
+STEP:        step7_uvicorn_start
+DESCRIPTION: Start uvicorn src.api.main:app (lab guide command)
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:51+00:00
+COMMAND:
+    uvicorn src.api.main:app --port 8000 --log-level warning > '/voc/work/W4_package/logs/_uvicorn_real.log' 2>&1 &
+        UV_PID=$!
+        echo $UV_PID > '/voc/work/W4_package/logs/_uvicorn.pid'
+        echo "uvicorn started, pid=$UV_PID"
+        for i in 1 2 3 4 5 6 7 8 9 10; do
+            sleep 1
+            if curl -s -f -o /dev/null http://localhost:8000/health 2>/dev/null; then
+                echo "server ready after ${i}s"
+                exit 0
+            fi
+        done
+        echo 'SERVER NEVER BECAME READY'
+        cat '/voc/work/W4_package/logs/_uvicorn_real.log'
+        exit 1
+--- OUTPUT ---
+uvicorn started, pid=5125
+server ready after 1s
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

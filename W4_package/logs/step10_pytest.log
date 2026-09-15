@@ -1,0 +1,22 @@
+STEP:        step10_pytest
+DESCRIPTION: pytest tests/ -q (test_cost.py + test_pipeline_w4.py)
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:56+00:00
+COMMAND:
+    python -m pytest tests/ -q --tb=short
+--- OUTPUT ---
+============================= test session starts ==============================
+platform linux -- Python 3.10.14, pytest-8.4.2, pluggy-1.6.0
+rootdir: /voc/work/W4_package
+configfile: pytest.ini
+plugins: asyncio-0.26.0, anyio-4.10.0, langsmith-0.4.27, Faker-25.2.0, typeguard-4.3.0
+asyncio: mode=auto, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 19 items
+
+tests/test_cost.py .........                                             [ 47%]
+tests/test_pipeline_w4.py ..........                                     [100%]
+
+============================== 19 passed in 0.64s ==============================
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

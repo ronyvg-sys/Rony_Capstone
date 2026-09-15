@@ -1,0 +1,22 @@
+STEP:        step4_store_idempotent
+DESCRIPTION: ensure_schema can be re-run without error
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:46+00:00
+COMMAND:
+    python -c "
+    import sys, tempfile, os, sqlite3; sys.path.insert(0, '.')
+    from src.pipeline.store import ensure_schema
+    with tempfile.NamedTemporaryFile(suffix='.db', delete=False) as f: path = f.name
+    ensure_schema(path)
+    ensure_schema(path)  # twice
+    ensure_schema(path)  # thrice
+    conn = sqlite3.connect(path)
+    cols_count = len(conn.execute('PRAGMA table_info(answers)').fetchall())
+    conn.close(); os.unlink(path)
+    print(f'columns after 3x ensure_schema: {cols_count}')
+    "
+--- OUTPUT ---
+columns after 3x ensure_schema: 10
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

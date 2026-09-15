@@ -1,0 +1,41 @@
+W4 Verification Run
+===================
+Timestamp:    2026-09-13T07:21:42+00:00
+PWD:          /voc/work/W4_package
+Python:       Python 3.10.14
+Has API key:  True
+Uvicorn port: 8000
+
+STEP                                            VERDICT                         DESCRIPTION
+----                                            -------                         -----------
+step0_python_version                            PASS                            Python version
+step0_openai_key                                PASS                            OPENAI_API_KEY present
+step0_pip_install                               PASS                            pip install -r requirements.txt (W4 superset)
+step0_imports_ok                                PASS                            All required packages importable (incl. tiktoken)
+step1_layout_complete                           PASS                            Every canonical W4 file at expected path
+step2_cost_rates_dict                           PASS                            RATES dict contains expected model entries
+step2_cost_known_model                          PASS                            compute_cost_usd known model — sane number
+step2_cost_diff_models                          PASS                            gpt-4o is more expensive than gpt-4o-mini
+step3_answer_defaults                           PASS                            Answer constructs with defaults, schema_version='v1'
+step3_answer_w3_compat                          PASS                            W3-shape constructor still works (additive change)
+step3_question_shape                            PASS                            Question has 'question' field
+step4_store_ensure_schema                       PASS                            ensure_schema creates the W4 columns
+step4_store_idempotent                          PASS                            ensure_schema can be re-run without error
+step4_store_save_query                          PASS                            save_answer + query roundtrip
+step5_answer_tool                               PASS                            ANSWER_TOOL schema is well-formed
+step5_ask_llm_fake                              PASS                            ask_llm with use_fake=True returns 6-field Answer
+step6_app_imports                               PASS                            from src.api.main import app — imports cleanly
+step6_health                                    PASS                            GET /health returns 200
+step6_ask_batched_w4                            PASS                            POST /ask_batched returns 6-field W4 Answer
+step6_ask_streaming                             PASS                            POST /ask streaming returns chunks
+step7_uvicorn_start                             PASS                            Start uvicorn src.api.main:app (lab guide command)
+step7_curl_health                               PASS                            curl /health against live server
+step7_curl_ask_batched                          PASS                            curl /ask_batched against live server → W4 6-field Answer
+step7_uvicorn_stop                              PASS                            Stop uvicorn cleanly
+step8_migrate_lab_command                       PASS                            scripts/migrate_store.py — EXACT lab guide invocation
+step8_migrate_with_pythonpath                   PASS                            Same migrate_store run with PYTHONPATH=. — proves code itself works
+step8_migrate_idempotent                        PASS                            Re-running migrate_store reports already-migrated (with PYTHONPATH fix)
+step9_compare_models_parses                     PASS                            scripts/compare_models.py parses + imports cleanly
+step9_compare_models_lab_command                PASS                            scripts/compare_models.py --help — EXACT lab guide invocation
+step9_compare_models_with_pythonpath            PASS                            Same compare_models --help with PYTHONPATH=. — proves code works
+step10_pytest                                   PASS                            pytest tests/ -q (test_cost.py + test_pipeline_w4.py)

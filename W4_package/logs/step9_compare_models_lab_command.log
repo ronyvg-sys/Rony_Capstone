@@ -1,0 +1,22 @@
+STEP:        step9_compare_models_lab_command
+DESCRIPTION: scripts/compare_models.py --help — EXACT lab guide invocation
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:55+00:00
+COMMAND:
+    python scripts/compare_models.py --help
+--- OUTPUT ---
+usage: compare_models.py [-h] [--models MODELS] [--questions QUESTIONS]
+                         [--db DB]
+
+Run two-model comparison for W4 Lab Step 3
+
+options:
+  -h, --help            show this help message and exit
+  --models MODELS       Comma-separated model ids (default:
+                        gpt-4o-mini,gpt-4o)
+  --questions QUESTIONS
+                        Path to questions CSV (default: data/questions.csv)
+  --db DB               Path to SQLite db (default: data/answers.db)
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

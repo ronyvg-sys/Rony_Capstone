@@ -1,0 +1,25 @@
+STEP:        step3_answer_defaults
+DESCRIPTION: Answer constructs with defaults, schema_version='v1'
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:45+00:00
+COMMAND:
+    python -c "
+    from src.pipeline.models import Answer
+    a = Answer(content='hi', cost_usd=0.0, retries=0)
+    print(f'schema_version: {a.schema_version!r}')
+    print(f'confidence:     {a.confidence}')
+    print(f'sources:        {a.sources}')
+    print(f'all fields:     {sorted(a.model_dump().keys())}')
+    assert a.schema_version == 'v1'
+    assert isinstance(a.sources, list)
+    for f in ('content', 'cost_usd', 'retries', 'confidence', 'sources', 'schema_version'):
+        assert f in a.model_dump(), f'missing field: {f}'
+    "
+--- OUTPUT ---
+schema_version: 'v1'
+confidence:     1.0
+sources:        []
+all fields:     ['confidence', 'content', 'cost_usd', 'retries', 'schema_version', 'sources']
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

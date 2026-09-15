@@ -1,0 +1,33 @@
+STEP:        step4_store_save_query
+DESCRIPTION: save_answer + query roundtrip
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:46+00:00
+COMMAND:
+    python -c "
+    import sys, tempfile, os, sqlite3; sys.path.insert(0, '.')
+    from src.pipeline.store import connect, save_answer
+    with tempfile.NamedTemporaryFile(suffix='.db', delete=False) as f: path = f.name
+    with connect(path) as conn:
+        save_answer(
+            conn,
+            question='Q?',
+            content='hi',
+            retries=0,
+            cost_usd=0.001,
+            model='gpt-4o-mini',
+            confidence=0.9,
+            sources=['doc1'],
+        )
+        rows = conn.execute('SELECT question, content, cost_usd, retries, model, confidence, schema_version FROM answers').fetchall()
+    print(f'roundtripped rows: {rows}')
+    os.unlink(path)
+    assert len(rows) == 1
+    assert rows[0][0] == 'Q?'
+    assert rows[0][1] == 'hi'
+    assert rows[0][6] == 'v1'
+    "
+--- OUTPUT ---
+roundtripped rows: [('Q?', 'hi', 0.001, 0, 'gpt-4o-mini', 0.9, 'v1')]
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

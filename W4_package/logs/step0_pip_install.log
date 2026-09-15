@@ -1,0 +1,10 @@
+STEP:        step0_pip_install
+DESCRIPTION: pip install -r requirements.txt (W4 superset)
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:43+00:00
+COMMAND:
+    pip install --break-system-packages -q -r requirements.txt
+--- OUTPUT ---
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

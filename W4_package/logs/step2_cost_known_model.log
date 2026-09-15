@@ -1,0 +1,16 @@
+STEP:        step2_cost_known_model
+DESCRIPTION: compute_cost_usd known model — sane number
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:45+00:00
+COMMAND:
+    python -c "
+    from src.pipeline.cost import compute_cost_usd
+    cost = compute_cost_usd('gpt-4o-mini', 100, 50)
+    print(f'compute_cost_usd(gpt-4o-mini, 100, 50) = ${cost:.6f}')
+    assert 0 < cost < 0.001, f'unexpected cost magnitude: {cost}'
+    "
+--- OUTPUT ---
+compute_cost_usd(gpt-4o-mini, 100, 50) = 
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS

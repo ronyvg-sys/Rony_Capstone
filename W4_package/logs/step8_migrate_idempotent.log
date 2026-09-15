@@ -1,0 +1,24 @@
+STEP:        step8_migrate_idempotent
+DESCRIPTION: Re-running migrate_store reports already-migrated (with PYTHONPATH fix)
+EXPECTED RC: 0
+TIMESTAMP:   2026-09-13T07:21:54+00:00
+COMMAND:
+    set -e
+        rm -f /tmp/_w4_migrate_test.db
+        PYTHONPATH=. python scripts/migrate_store.py /tmp/_w4_migrate_test.db
+        out=$(PYTHONPATH=. python scripts/migrate_store.py /tmp/_w4_migrate_test.db)
+        echo "$out"
+        echo "$out" | grep -qE 'already migrated|none' || { echo 'expected idempotency mention'; exit 1; }
+        rm -f /tmp/_w4_migrate_test.db
+--- OUTPUT ---
+Migrated: /tmp/_w4_migrate_test.db
+  Columns before : (none — table created)
+  Columns after  : ['id', 'question', 'content', 'retries', 'cost_usd', 'created_at', 'model', 'confidence', 'sources_json', 'schema_version']
+  Added          : ['id', 'question', 'content', 'retries', 'cost_usd', 'created_at', 'model', 'confidence', 'sources_json', 'schema_version']
+Migrated: /tmp/_w4_migrate_test.db
+  Columns before : ['id', 'question', 'content', 'retries', 'cost_usd', 'created_at', 'model', 'confidence', 'sources_json', 'schema_version']
+  Columns after  : ['id', 'question', 'content', 'retries', 'cost_usd', 'created_at', 'model', 'confidence', 'sources_json', 'schema_version']
+  Added          : (none — already migrated)
+--- END ---
+EXIT_CODE: 0
+VERDICT:   PASS
