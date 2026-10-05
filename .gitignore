@@ -1,4 +1,20 @@
-
 # Python cache
 __pycache__/
-*.pyc/n
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Runtime / generated database
+results.db
+*.db
+
+# W5 temporary working files
+W5_Package/mp1_prompt_lab_working.ipynb

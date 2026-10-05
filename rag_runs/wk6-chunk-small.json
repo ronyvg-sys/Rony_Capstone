@@ -1,0 +1,221 @@
+{
+  "label": "wk6-chunk-small",
+  "index": "data/embeddings_small.json",
+  "golden_set": "data/golden_set_full.jsonl",
+  "questions": 10,
+  "retrieval_hits": 10,
+  "retrieval_hit_rate": 1.0,
+  "avg_latency_ms": 1521.91,
+  "results": [
+    {
+      "id": "q01",
+      "question": "What is the top priority risk in Project ABC?",
+      "expected_keywords": [
+        "R-001",
+        "Data migration",
+        "billing reconciliation"
+      ],
+      "matched_keywords": [
+        "R-001",
+        "Data migration",
+        "billing reconciliation"
+      ],
+      "hit": true,
+      "answer": "The top priority risk in Project ABC is R-001 — Data migration and billing reconciliation delay.",
+      "sources": [
+        "risk_register::chunk-0",
+        "risk_register::chunk-4",
+        "risk_register::chunk-3"
+      ],
+      "latency_ms": 1615.11,
+      "tokens_in": 298,
+      "tokens_out": 19
+    },
+    {
+      "id": "q02",
+      "question": "What is the target production date for Project ABC?",
+      "expected_keywords": [
+        "December 18, 2026"
+      ],
+      "matched_keywords": [
+        "December 18, 2026"
+      ],
+      "hit": true,
+      "answer": "The target production date for Project ABC is December 18, 2026.",
+      "sources": [
+        "release_plan::chunk-0",
+        "project_charter::chunk-0",
+        "release_plan::chunk-1"
+      ],
+      "latency_ms": 1340.55,
+      "tokens_in": 331,
+      "tokens_out": 16
+    },
+    {
+      "id": "q03",
+      "question": "What is the current overall status of Project ABC?",
+      "expected_keywords": [
+        "Amber"
+      ],
+      "matched_keywords": [
+        "Amber"
+      ],
+      "hit": true,
+      "answer": "The current overall status of Project ABC is AMBER.",
+      "sources": [
+        "testing_status::chunk-0",
+        "project_status_report_previous::chunk-0",
+        "project_status_report::chunk-0"
+      ],
+      "latency_ms": 1253.66,
+      "tokens_in": 296,
+      "tokens_out": 11
+    },
+    {
+      "id": "q04",
+      "question": "Who is the project manager for Project ABC?",
+      "expected_keywords": [
+        "Rony George"
+      ],
+      "matched_keywords": [
+        "Rony George"
+      ],
+      "hit": true,
+      "answer": "The project manager for Project ABC is Rony George.",
+      "sources": [
+        "resource_plan::chunk-0",
+        "project_charter::chunk-0",
+        "meeting_minutes_2026_09_15::chunk-0"
+      ],
+      "latency_ms": 1127.79,
+      "tokens_in": 300,
+      "tokens_out": 11
+    },
+    {
+      "id": "q05",
+      "question": "What is the main objective of the Single Billing Transformation project?",
+      "expected_keywords": [
+        "Single Billing"
+      ],
+      "matched_keywords": [
+        "Single Billing"
+      ],
+      "hit": true,
+      "answer": "The main objective of the Single Billing Transformation project, also referred to as Project ABC, is to consolidate multiple independent billing platforms into a single enterprise billing solution for corporate banking services.",
+      "sources": [
+        "project_overview::chunk-0",
+        "project_charter::chunk-2",
+        "project_charter::chunk-1"
+      ],
+      "latency_ms": 1485.69,
+      "tokens_in": 262,
+      "tokens_out": 35
+    },
+    {
+      "id": "q06",
+      "question": "What is the severity of risk R-001?",
+      "expected_keywords": [
+        "CRITICAL"
+      ],
+      "matched_keywords": [
+        "CRITICAL"
+      ],
+      "hit": true,
+      "answer": "The severity of risk R-001 is rated as CRITICAL.",
+      "sources": [
+        "risk_register::chunk-3",
+        "meeting_minutes_2026_09_15::chunk-3",
+        "risk_register::chunk-0"
+      ],
+      "latency_ms": 1386.32,
+      "tokens_in": 257,
+      "tokens_out": 13
+    },
+    {
+      "id": "q07",
+      "question": "What are the main dependencies for the Project ABC release?",
+      "expected_keywords": [
+        "data migration",
+        "UAT",
+        "billing"
+      ],
+      "matched_keywords": [
+        "data migration",
+        "UAT"
+      ],
+      "hit": true,
+      "answer": "The main dependencies for Project ABC release are:\n\n1. **Data migration validation**\n   - Owner: Data Migration Team\n   - Required By: October 9, 2026\n   - Status: At Risk\n   - Impact: UAT entry\n\n2. **Payment gateway interface availability**\n   - Owner: Integration Team\n   - Required By: Information is not fully available as the date is incomplete in the provided context.",
+      "sources": [
+        "project_dependencies::chunk-0",
+        "release_plan::chunk-0",
+        "testing_status::chunk-0"
+      ],
+      "latency_ms": 1832.99,
+      "tokens_in": 323,
+      "tokens_out": 87
+    },
+    {
+      "id": "q08",
+      "question": "What is the planned production release date?",
+      "expected_keywords": [
+        "December 18, 2026"
+      ],
+      "matched_keywords": [
+        "December 18, 2026"
+      ],
+      "hit": true,
+      "answer": "The planned production release date is December 18, 2026.",
+      "sources": [
+        "release_plan::chunk-1",
+        "project_dependencies::chunk-3",
+        "release_plan::chunk-0"
+      ],
+      "latency_ms": 1568.18,
+      "tokens_in": 277,
+      "tokens_out": 14
+    },
+    {
+      "id": "q09",
+      "question": "What are the key testing activities currently in progress?",
+      "expected_keywords": [
+        "UAT",
+        "testing"
+      ],
+      "matched_keywords": [
+        "UAT",
+        "testing"
+      ],
+      "hit": true,
+      "answer": "The key testing activities currently in progress are:\n\n1. System Integration Testing - Status: In Progress\n2. UAT (User Acceptance Testing) - Status: Preparation",
+      "sources": [
+        "testing_status::chunk-1",
+        "project_overview::chunk-1",
+        "testing_status::chunk-0"
+      ],
+      "latency_ms": 1456.75,
+      "tokens_in": 293,
+      "tokens_out": 33
+    },
+    {
+      "id": "q10",
+      "question": "What are the high-priority JIRA issues for Project ABC?",
+      "expected_keywords": [
+        "JIRA",
+        "high priority"
+      ],
+      "matched_keywords": [
+        "JIRA"
+      ],
+      "hit": true,
+      "answer": "The high-priority JIRA issues for Project ABC are:\n\n1. ABC-1042 - Billing reconciliation mismatch after migration (Priority: Critical, Severity: 1, Status: Open, Owner: Data Migration Team)\n2. ABC-1051 - Payment gateway timeout (Priority: High, Severity: 2, Status: In Progress)\n3. ABC-1060 - UAT test data approval (Priority: High, Severity: 2, Status: Open)",
+      "sources": [
+        "jira_issues_open::chunk-0",
+        "jira_issues_high_priority::chunk-0",
+        "jira_issues_open::chunk-1"
+      ],
+      "latency_ms": 2152.05,
+      "tokens_in": 343,
+      "tokens_out": 95
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{"id":"q01","question":"What is the top priority risk in Project ABC?","expected_keywords":["R-001","Data migration","billing reconciliation"]}
+{"id":"q02","question":"What is the target production date for Project ABC?","expected_keywords":["December 18, 2026"]}
+{"id":"q03","question":"What is the current overall status of Project ABC?","expected_keywords":["Amber"]}
+{"id":"q04","question":"Who is the project manager for Project ABC?","expected_keywords":["Rony George"]}
+{"id":"q05","question":"What is the main objective of the Single Billing Transformation project?","expected_keywords":["Single Billing"]}
+{"id":"q06","question":"What is the severity of risk R-001?","expected_keywords":["CRITICAL"]}
+{"id":"q07","question":"What are the main dependencies for the Project ABC release?","expected_keywords":["data migration","UAT","billing"]}
+{"id":"q08","question":"What is the planned production release date?","expected_keywords":["December 18, 2026"]}
+{"id":"q09","question":"What are the key testing activities currently in progress?","expected_keywords":["UAT","testing"]}
+{"id":"q10","question":"What are the high-priority JIRA issues for Project ABC?","expected_keywords":["JIRA","high priority"]}
