@@ -1,0 +1,181 @@
+{
+  "chunk_size": 500,
+  "chunk_overlap": 50,
+  "chunks": [
+    {
+      "chunk_id": "architecture_overview::chunk-0",
+      "doc_id": "architecture_overview",
+      "text": "# Project ABC \u2014 Architecture Overview\n\n## Target Architecture\n\nThe solution consists of:\n- Central Billing Platform\n- Customer Account Service\n- Product and Pricing Service\n- Payment Gateway Integration\n- Data Migration Layer\n- Reporting and Audit Services\n\n## Data Flow\nCustomer and product information is received through enterprise interfaces. Billing calculations are performed by the central billing platform. Payment information is integrated through the payment gateway. Billing results are ex"
+    },
+    {
+      "chunk_id": "architecture_overview::chunk-1",
+      "doc_id": "architecture_overview",
+      "text": "hrough the payment gateway. Billing results are exposed to reporting and audit services.\n\n## Key Technical Concern\nThe migration layer must preserve billing accuracy and support reconciliation between legacy and target platforms.\n\n## Architecture Principle\nThe target platform should provide reusable services rather than product-specific billing implementations."
+    },
+    {
+      "chunk_id": "jira_issues_high_priority::chunk-0",
+      "doc_id": "jira_issues_high_priority",
+      "text": "# Project ABC \u2014 High Priority JIRA Issues\n\n## ABC-1042\nSummary: Billing reconciliation mismatch after migration\nPriority: Critical\nSeverity: 1\nStatus: Open\nOwner: Data Migration Team\n\nDescription:\nBilling totals for a subset of migrated corporate accounts do not reconcile with the legacy billing platform.\n\nImpact:\nPotential UAT delay and production-readiness risk.\n\nNext Action:\nComplete root-cause analysis and reconciliation validation.\n\n## ABC-1051\nSummary: Payment gateway interface timeout\nPri"
+    },
+    {
+      "chunk_id": "jira_issues_high_priority::chunk-1",
+      "doc_id": "jira_issues_high_priority",
+      "text": "051\nSummary: Payment gateway interface timeout\nPriority: High\nSeverity: 2\nStatus: In Progress\nOwner: Integration Team\n\nDescription:\nIntermittent timeout observed during high-volume integration testing.\n\nNext Action:\nComplete interface performance analysis.\n\n## ABC-1060\nSummary: UAT test data approval\nPriority: High\nSeverity: 2\nStatus: Open\nOwner: Business Testing Team\n\nDescription:\nFinal approval of UAT test data is pending.\n\nNext Action:\nBusiness team to complete review."
+    },
+    {
+      "chunk_id": "jira_issues_high_priority::chunk-2",
+      "doc_id": "jira_issues_high_priority",
+      "text": "s team to complete review."
+    },
+    {
+      "chunk_id": "jira_issues_open::chunk-0",
+      "doc_id": "jira_issues_open",
+      "text": "# Project ABC \u2014 Open JIRA Issues\n\n| JIRA | Priority | Severity | Status | Description |\n|---|---|---|---|---|\n| ABC-1042 | Critical | S1 | Open | Billing reconciliation mismatch |\n| ABC-1051 | High | S2 | In Progress | Payment gateway timeout |\n| ABC-1060 | High | S2 | Open | UAT test data approval |\n| ABC-1072 | Medium | S3 | Open | Reporting format correction |\n| ABC-1081 | Medium | S3 | Open | Additional audit logging |\n\n## Priority Rule\nSeverity 1 issues must be addressed before Severity 2 a"
+    },
+    {
+      "chunk_id": "jira_issues_open::chunk-1",
+      "doc_id": "jira_issues_open",
+      "text": "ity 1 issues must be addressed before Severity 2 and Severity 3 issues.\n\nABC-1042 is currently the highest-priority open issue because it directly affects migration reconciliation and UAT readiness."
+    },
+    {
+      "chunk_id": "meeting_minutes_2026_09_15::chunk-0",
+      "doc_id": "meeting_minutes_2026_09_15",
+      "text": "# Project ABC \u2014 Meeting Minutes\n\nMeeting Date: September 15, 2026\nMeeting: Weekly Project Governance Meeting\n\n## Attendees\nProject Manager, Business Lead, Technical Lead, Data Migration Lead, Testing Lead\n\n## Key Discussions\nThe team reviewed integration progress, migration validation and upcoming UAT preparation.\n\n## Decisions\n1. Daily migration reconciliation reporting will be introduced.\n2. Severity 1 defects will receive priority over all other defects.\n3. UAT entry criteria will be formally"
+    },
+    {
+      "chunk_id": "meeting_minutes_2026_09_15::chunk-1",
+      "doc_id": "meeting_minutes_2026_09_15",
+      "text": "er defects.\n3. UAT entry criteria will be formally documented.\n4. Production readiness activities will begin before UAT completion.\n\n## Actions\n- Data Migration Lead to publish reconciliation dashboard.\n- Testing Lead to finalize UAT entry criteria.\n- Technical Lead to review production capacity.\n- Project Manager to update the risk register.\n\n## Key Risk\nR-001 was identified as the primary emerging risk."
+    },
+    {
+      "chunk_id": "meeting_minutes_2026_09_29::chunk-0",
+      "doc_id": "meeting_minutes_2026_09_29",
+      "text": "# Project ABC \u2014 Meeting Minutes\n\nMeeting Date: September 29, 2026\nMeeting: Project Steering Committee\n\n## Overall Status\nAMBER\n\n## Key Discussion\nThe committee reviewed the data migration delay and the open reconciliation defect.\n\n## Decisions\n1. R-001 remains the top priority risk.\n2. Daily reconciliation tracking will continue until the risk is reduced.\n3. A dedicated data SME will support defect resolution.\n4. The December 18 production target remains unchanged.\n5. Any request affecting the p"
+    },
+    {
+      "chunk_id": "meeting_minutes_2026_09_29::chunk-1",
+      "doc_id": "meeting_minutes_2026_09_29",
+      "text": "remains unchanged.\n5. Any request affecting the production date must go through formal change control.\n\n## Actions\n- Data Migration Lead: close the outstanding reconciliation defect.\n- Testing Lead: confirm UAT readiness criteria.\n- Project Manager: escalate unresolved critical issues.\n- Technical Lead: complete performance capacity assessment."
+    },
+    {
+      "chunk_id": "project_charter::chunk-0",
+      "doc_id": "project_charter",
+      "text": "# Project ABC \u2014 Project Charter\n\n## Project Information\nProject: ABC \u2014 Banking Single Billing Transformation\nClient: Global Bank\nProject Sponsor: Head of Corporate Banking Technology\nProject Manager: Rony George\nDelivery Model: Agile\nProject Start: January 2026\nTarget Production Release: December 18, 2026\n\n## Objective\nProject ABC will consolidate multiple independent billing platforms into a single enterprise billing solution for corporate banking services.\n\n## Business Objectives\n- Simplify bi"
+    },
+    {
+      "chunk_id": "project_charter::chunk-1",
+      "doc_id": "project_charter",
+      "text": "ng services.\n\n## Business Objectives\n- Simplify billing operations.\n- Reduce duplicate billing platforms.\n- Improve billing transparency.\n- Provide consistent customer billing.\n- Reduce operational support effort.\n- Establish a scalable billing platform for future products.\n\n## Scope\nThe project includes billing migration, customer billing validation, integration testing, user acceptance testing, production readiness, and migration of in-scope billing products.\n\n## Out of Scope\nChanges to unrela"
+    },
+    {
+      "chunk_id": "project_charter::chunk-2",
+      "doc_id": "project_charter",
+      "text": "lling products.\n\n## Out of Scope\nChanges to unrelated retail banking billing platforms and non-billing customer applications are outside the project scope.\n\n## Success Criteria\n- Successful migration of all in-scope billing products.\n- UAT completion with no open Severity 1 defects.\n- Production readiness approval.\n- Successful reconciliation between legacy and target billing."
+    },
+    {
+      "chunk_id": "project_dependencies::chunk-0",
+      "doc_id": "project_dependencies",
+      "text": "# Project ABC \u2014 Project Dependencies\n\n## Dependency D-001\nDependency: Data migration validation\nOwner: Data Migration Team\nRequired By: October 9, 2026\nStatus: At Risk\nImpact: UAT entry\n\n## Dependency D-002\nDependency: Payment gateway interface availability\nOwner: Integration Team\nRequired By: October 12, 2026\nStatus: In Progress\nImpact: Integration testing\n\n## Dependency D-003\nDependency: UAT business users\nOwner: Business Lead\nRequired By: October 14, 2026\nStatus: Pending Confirmation\nImpact:"
+    },
+    {
+      "chunk_id": "project_dependencies::chunk-1",
+      "doc_id": "project_dependencies",
+      "text": "ber 14, 2026\nStatus: Pending Confirmation\nImpact: UAT execution\n\n## Dependency D-004\nDependency: Production environment capacity validation\nOwner: Technical Lead\nRequired By: November 20, 2026\nStatus: Not Started\nImpact: Production readiness\n\n## Dependency D-005\nDependency: Production change approval\nOwner: Change Management Team\nRequired By: December 10, 2026\nStatus: Planned\nImpact: Production deployment"
+    },
+    {
+      "chunk_id": "project_governance::chunk-0",
+      "doc_id": "project_governance",
+      "text": "# Project ABC \u2014 Governance\n\n## Governance Structure\n\n### Weekly Project Governance\nReviews:\n- Schedule\n- Risks\n- Issues\n- Dependencies\n- Testing\n- Financials\n\n### Steering Committee\nReviews:\n- Critical risks\n- Major decisions\n- Scope changes\n- Release readiness\n- Escalations\n\n## Risk Escalation\nCritical risks must be escalated to the Steering Committee.\n\n## Issue Priority\nSeverity 1 issues receive immediate attention and are prioritized over lower-severity issues.\n\n## Change Control\nAny change a"
+    },
+    {
+      "chunk_id": "project_governance::chunk-1",
+      "doc_id": "project_governance",
+      "text": "r-severity issues.\n\n## Change Control\nAny change affecting scope, schedule or production date requires impact assessment and formal approval.\n\n## Reporting\nThe Project Manager publishes a weekly status report and maintains the risk, issue and dependency registers."
+    },
+    {
+      "chunk_id": "project_overview::chunk-0",
+      "doc_id": "project_overview",
+      "text": "# Project ABC \u2014 Project Overview\n\nProject ABC is a banking transformation initiative to replace multiple independent billing systems with a centralized enterprise billing platform.\n\nThe target solution provides common billing capabilities for corporate banking products.\n\n## Current Phase\nThe project is currently in the integration and UAT preparation phase.\n\n## Key Workstreams\n1. Application development\n2. Data migration\n3. Billing integration\n4. Testing\n5. Production readiness\n6. Business readi"
+    },
+    {
+      "chunk_id": "project_overview::chunk-1",
+      "doc_id": "project_overview",
+      "text": "Testing\n5. Production readiness\n6. Business readiness\n7. Governance and reporting\n\n## Current Overall Status\nOverall status is AMBER.\n\nThe main reasons for the AMBER status are:\n- Data migration validation is behind the planned schedule.\n- A high-priority reconciliation defect remains open.\n- UAT entry criteria are being finalized.\n\n## Target Milestone\nProduction deployment is targeted for December 18, 2026."
+    },
+    {
+      "chunk_id": "project_status_report::chunk-0",
+      "doc_id": "project_status_report",
+      "text": "# Project ABC \u2014 Project Status Report\n\nReporting Period: September 28, 2026 to October 2, 2026\n\n## Overall Status\nAMBER\n\n## Schedule\nThe overall project schedule remains achievable, but the data migration workstream is approximately one week behind the baseline.\n\n## Scope\nNo major scope changes were approved during this reporting period.\n\n## Testing\nSystem integration testing is progressing.\n\nUAT preparation is underway. UAT cannot formally start until the agreed entry criteria are met.\n\n## Defe"
+    },
+    {
+      "chunk_id": "project_status_report::chunk-1",
+      "doc_id": "project_status_report",
+      "text": "until the agreed entry criteria are met.\n\n## Defects\nOne Severity 1 reconciliation defect remains open.\n\nThree Severity 2 defects are under investigation.\n\n## Risks\nR-001 remains the top project risk.\n\n## Key Achievements\n- Completed the latest billing interface integration cycle.\n- Completed initial migration validation.\n- Published updated UAT entry criteria.\n- Started production readiness checklist.\n\n## Next Week Priorities\n- Close the Severity 1 reconciliation defect.\n- Complete migration v"
+    },
+    {
+      "chunk_id": "project_status_report::chunk-2",
+      "doc_id": "project_status_report",
+      "text": "ty 1 reconciliation defect.\n- Complete migration validation.\n- Confirm UAT business resources.\n- Finalize UAT test data."
+    },
+    {
+      "chunk_id": "project_status_report_previous::chunk-0",
+      "doc_id": "project_status_report_previous",
+      "text": "# Project ABC \u2014 Previous Status Report\n\nReporting Period: September 21, 2026 to September 25, 2026\n\n## Overall Status\nAMBER\n\n## Progress\nIntegration testing progressed according to plan.\n\nMigration validation identified additional reconciliation differences requiring investigation.\n\n## Key Issues\n- Migration reconciliation defects increased from two to four.\n- UAT entry criteria were not yet finalized.\n- Business test resources were still being confirmed.\n\n## Management Focus\nThe project leaders"
+    },
+    {
+      "chunk_id": "project_status_report_previous::chunk-1",
+      "doc_id": "project_status_report_previous",
+      "text": "onfirmed.\n\n## Management Focus\nThe project leadership team requested daily reporting on migration reconciliation and critical defects.\n\n## Planned Actions\n- Complete reconciliation analysis.\n- Confirm UAT resources.\n- Finalize UAT entry criteria.\n- Review production readiness dependencies."
+    },
+    {
+      "chunk_id": "release_plan::chunk-0",
+      "doc_id": "release_plan",
+      "text": "# Project ABC \u2014 Release Plan\n\n## Major Milestones\n\n| Milestone | Target Date | Status |\n|---|---|---|\n| Integration Testing Complete | October 9, 2026 | In Progress |\n| UAT Start | October 14, 2026 | Planned |\n| UAT Complete | November 6, 2026 | Planned |\n| Performance Testing Complete | November 20, 2026 | Planned |\n| Production Readiness Review | December 4, 2026 | Planned |\n| Production Change Approval | December 10, 2026 | Planned |\n| Production Deployment | December 18, 2026 | Planned |\n\n##"
+    },
+    {
+      "chunk_id": "release_plan::chunk-1",
+      "doc_id": "release_plan",
+      "text": "ion Deployment | December 18, 2026 | Planned |\n\n## Release Entry Criteria\n- No unresolved Severity 1 defects.\n- UAT completion approved.\n- Performance testing completed.\n- Production capacity validated.\n- Business readiness confirmed.\n- Change approval obtained."
+    },
+    {
+      "chunk_id": "resource_plan::chunk-0",
+      "doc_id": "resource_plan",
+      "text": "# Project ABC \u2014 Resource Plan\n\n## Core Team\n\n### Project Management\nProject Manager: Rony George\nResponsibility: Overall delivery, governance, risks and dependencies.\n\n### Technical Team\nTechnical Lead: Arun Menon\nDevelopers: 6\nResponsibility: Application development and technical integration.\n\n### Data Migration\nData Migration Lead: Priya Nair\nMigration SMEs: 3\nResponsibility: Data mapping, migration and reconciliation.\n\n### Testing\nTest Manager: Anil Kumar\nTest Analysts: 5\nResponsibility: SIT,"
+    },
+    {
+      "chunk_id": "resource_plan::chunk-1",
+      "doc_id": "resource_plan",
+      "text": ": Anil Kumar\nTest Analysts: 5\nResponsibility: SIT, UAT preparation and defect management.\n\n### Business\nBusiness Lead: Sarah Thomas\nBusiness SMEs: 6\nResponsibility: Business validation and UAT.\n\n## Current Resource Concern\nThe main resource concern is availability of business SMEs during the UAT period."
+    },
+    {
+      "chunk_id": "risk_register::chunk-0",
+      "doc_id": "risk_register",
+      "text": "# Project ABC \u2014 Risk Register\n\n| Risk ID | Risk | Probability | Impact | Rating | Mitigation | Owner |\n|---|---|---|---|---|---|---|\n| R-001 | Data migration and billing reconciliation may not complete before UAT | High | High | CRITICAL | Daily reconciliation tracking, additional validation cycles, dedicated SME support | Data Migration Lead |\n| R-002 | External payment gateway dependency may delay integration testing | Medium | High | HIGH | Confirm interface readiness and establish fallback t"
+    },
+    {
+      "chunk_id": "risk_register::chunk-1",
+      "doc_id": "risk_register",
+      "text": "nfirm interface readiness and establish fallback test data | Integration Lead |\n| R-003 | UAT business resources may not be available for the complete test window | Medium | Medium | MEDIUM | Obtain business resource commitment and publish test calendar | Business Lead |\n| R-004 | Production environment capacity may be insufficient for peak billing volume | Low | High | MEDIUM | Complete performance testing and capacity assessment | Technical Lead |\n| R-005 | Late change requests may affect rele"
+    },
+    {
+      "chunk_id": "risk_register::chunk-2",
+      "doc_id": "risk_register",
+      "text": "d |\n| R-005 | Late change requests may affect release readiness | Medium | Medium | MEDIUM | Enforce change-control process and assess impact before approval | Project Manager |\n\n## Top Priority Risk\n\n**R-001 \u2014 Data migration and billing reconciliation delay is the top priority risk.**\n\nIt is rated CRITICAL because both probability and impact are HIGH.\n\nThe risk directly threatens UAT readiness and the December production release.\n\n## Immediate Actions\n- Complete outstanding reconciliation scena"
+    },
+    {
+      "chunk_id": "risk_register::chunk-3",
+      "doc_id": "risk_register",
+      "text": "ctions\n- Complete outstanding reconciliation scenarios.\n- Review migration defects daily.\n- Assign dedicated data SMEs.\n- Track reconciliation completion percentage.\n- Escalate unresolved critical defects through project governance."
+    },
+    {
+      "chunk_id": "testing_status::chunk-0",
+      "doc_id": "testing_status",
+      "text": "# Project ABC \u2014 Testing Status\n\n## System Integration Testing\nStatus: In Progress\n\nIntegration testing is progressing, with one critical reconciliation issue remaining open.\n\n## UAT\nStatus: Preparation\n\nUAT entry criteria are being finalized.\n\n## UAT Entry Criteria\n- Critical defects closed or formally accepted.\n- Test data approved.\n- Business users confirmed.\n- Test environment available.\n- Test scenarios baselined.\n\n## Performance Testing\nStatus: Planned\n\nPerformance testing is planned before"
+    },
+    {
+      "chunk_id": "testing_status::chunk-1",
+      "doc_id": "testing_status",
+      "text": "us: Planned\n\nPerformance testing is planned before the production readiness review.\n\n## Current Testing Risk\nABC-1042 is the main testing concern because the billing reconciliation mismatch may prevent UAT entry approval."
+    }
+  ]
+}

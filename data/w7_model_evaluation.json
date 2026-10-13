@@ -1,0 +1,473 @@
+[
+  {
+    "model": "small",
+    "hit_count": 9,
+    "total_questions": 10,
+    "hit_rate_percent": 90.0,
+    "latency_p50_ms": 532.2189999860711,
+    "query_tokens": 103,
+    "query_cost_usd": 2.0599999999999998e-06,
+    "details": [
+      {
+        "id": "q01",
+        "question": "What is the top priority risk in Project ABC?",
+        "expected_keywords": [
+          "R-001",
+          "Data migration",
+          "billing reconciliation"
+        ],
+        "hit": true,
+        "latency_ms": 4308.194099983666,
+        "retrieved_chunks": [
+          "risk_register::chunk-0",
+          "risk_register::chunk-2",
+          "project_governance::chunk-0"
+        ]
+      },
+      {
+        "id": "q02",
+        "question": "What is the target production date for Project ABC?",
+        "expected_keywords": [
+          "December 18, 2026"
+        ],
+        "hit": true,
+        "latency_ms": 623.7085999455303,
+        "retrieved_chunks": [
+          "release_plan::chunk-0",
+          "project_status_report::chunk-0",
+          "testing_status::chunk-0"
+        ]
+      },
+      {
+        "id": "q03",
+        "question": "What is the current overall status of Project ABC?",
+        "expected_keywords": [
+          "Amber"
+        ],
+        "hit": true,
+        "latency_ms": 992.6476000109687,
+        "retrieved_chunks": [
+          "project_status_report_previous::chunk-0",
+          "project_status_report::chunk-0",
+          "testing_status::chunk-0"
+        ]
+      },
+      {
+        "id": "q04",
+        "question": "Who is the project manager for Project ABC?",
+        "expected_keywords": [
+          "Rony George"
+        ],
+        "hit": true,
+        "latency_ms": 544.5792999817058,
+        "retrieved_chunks": [
+          "resource_plan::chunk-0",
+          "project_governance::chunk-0",
+          "release_plan::chunk-0"
+        ]
+      },
+      {
+        "id": "q05",
+        "question": "What is the main objective of the Single Billing Transformation project?",
+        "expected_keywords": [
+          "Single Billing"
+        ],
+        "hit": true,
+        "latency_ms": 507.21499999053776,
+        "retrieved_chunks": [
+          "project_charter::chunk-0",
+          "project_charter::chunk-1",
+          "project_overview::chunk-0"
+        ]
+      },
+      {
+        "id": "q06",
+        "question": "What is the severity of risk R-001?",
+        "expected_keywords": [
+          "CRITICAL"
+        ],
+        "hit": true,
+        "latency_ms": 519.8586999904364,
+        "retrieved_chunks": [
+          "risk_register::chunk-0",
+          "risk_register::chunk-2",
+          "project_governance::chunk-1"
+        ]
+      },
+      {
+        "id": "q07",
+        "question": "What are the main dependencies for the Project ABC release?",
+        "expected_keywords": [
+          "data migration",
+          "UAT",
+          "billing"
+        ],
+        "hit": false,
+        "latency_ms": 488.01800003275275,
+        "retrieved_chunks": [
+          "release_plan::chunk-0",
+          "project_dependencies::chunk-0",
+          "testing_status::chunk-0"
+        ]
+      },
+      {
+        "id": "q08",
+        "question": "What is the planned production release date?",
+        "expected_keywords": [
+          "December 18, 2026"
+        ],
+        "hit": true,
+        "latency_ms": 587.1680999989621,
+        "retrieved_chunks": [
+          "release_plan::chunk-1",
+          "release_plan::chunk-0",
+          "project_dependencies::chunk-1"
+        ]
+      },
+      {
+        "id": "q09",
+        "question": "What are the key testing activities currently in progress?",
+        "expected_keywords": [
+          "UAT",
+          "testing"
+        ],
+        "hit": true,
+        "latency_ms": 502.27120000636205,
+        "retrieved_chunks": [
+          "testing_status::chunk-0",
+          "testing_status::chunk-1",
+          "project_overview::chunk-1"
+        ]
+      },
+      {
+        "id": "q10",
+        "question": "What are the high-priority JIRA issues for Project ABC?",
+        "expected_keywords": [
+          "JIRA",
+          "high priority"
+        ],
+        "hit": true,
+        "latency_ms": 504.87450003856793,
+        "retrieved_chunks": [
+          "jira_issues_open::chunk-0",
+          "jira_issues_open::chunk-1",
+          "jira_issues_high_priority::chunk-0"
+        ]
+      }
+    ]
+  },
+  {
+    "model": "large",
+    "hit_count": 10,
+    "total_questions": 10,
+    "hit_rate_percent": 100.0,
+    "latency_p50_ms": 615.044250007486,
+    "query_tokens": 103,
+    "query_cost_usd": 1.3389999999999999e-05,
+    "details": [
+      {
+        "id": "q01",
+        "question": "What is the top priority risk in Project ABC?",
+        "expected_keywords": [
+          "R-001",
+          "Data migration",
+          "billing reconciliation"
+        ],
+        "hit": true,
+        "latency_ms": 530.5760999908671,
+        "retrieved_chunks": [
+          "risk_register::chunk-2",
+          "jira_issues_high_priority::chunk-0",
+          "jira_issues_open::chunk-1"
+        ]
+      },
+      {
+        "id": "q02",
+        "question": "What is the target production date for Project ABC?",
+        "expected_keywords": [
+          "December 18, 2026"
+        ],
+        "hit": true,
+        "latency_ms": 583.6180000333115,
+        "retrieved_chunks": [
+          "release_plan::chunk-0",
+          "project_charter::chunk-0",
+          "project_overview::chunk-1"
+        ]
+      },
+      {
+        "id": "q03",
+        "question": "What is the current overall status of Project ABC?",
+        "expected_keywords": [
+          "Amber"
+        ],
+        "hit": true,
+        "latency_ms": 715.5324000050314,
+        "retrieved_chunks": [
+          "testing_status::chunk-0",
+          "project_status_report::chunk-0",
+          "project_overview::chunk-0"
+        ]
+      },
+      {
+        "id": "q04",
+        "question": "Who is the project manager for Project ABC?",
+        "expected_keywords": [
+          "Rony George"
+        ],
+        "hit": true,
+        "latency_ms": 505.4200000013225,
+        "retrieved_chunks": [
+          "resource_plan::chunk-0",
+          "project_charter::chunk-0",
+          "project_overview::chunk-0"
+        ]
+      },
+      {
+        "id": "q05",
+        "question": "What is the main objective of the Single Billing Transformation project?",
+        "expected_keywords": [
+          "Single Billing"
+        ],
+        "hit": true,
+        "latency_ms": 640.0950999814086,
+        "retrieved_chunks": [
+          "project_charter::chunk-1",
+          "project_charter::chunk-0",
+          "architecture_overview::chunk-1"
+        ]
+      },
+      {
+        "id": "q06",
+        "question": "What is the severity of risk R-001?",
+        "expected_keywords": [
+          "CRITICAL"
+        ],
+        "hit": true,
+        "latency_ms": 545.3319999505766,
+        "retrieved_chunks": [
+          "risk_register::chunk-2",
+          "risk_register::chunk-1",
+          "risk_register::chunk-0"
+        ]
+      },
+      {
+        "id": "q07",
+        "question": "What are the main dependencies for the Project ABC release?",
+        "expected_keywords": [
+          "data migration",
+          "UAT",
+          "billing"
+        ],
+        "hit": true,
+        "latency_ms": 613.3603000198491,
+        "retrieved_chunks": [
+          "project_dependencies::chunk-0",
+          "release_plan::chunk-0",
+          "project_overview::chunk-0"
+        ]
+      },
+      {
+        "id": "q08",
+        "question": "What is the planned production release date?",
+        "expected_keywords": [
+          "December 18, 2026"
+        ],
+        "hit": true,
+        "latency_ms": 633.3178000058979,
+        "retrieved_chunks": [
+          "release_plan::chunk-0",
+          "release_plan::chunk-1",
+          "project_overview::chunk-1"
+        ]
+      },
+      {
+        "id": "q09",
+        "question": "What are the key testing activities currently in progress?",
+        "expected_keywords": [
+          "UAT",
+          "testing"
+        ],
+        "hit": true,
+        "latency_ms": 624.2607000167482,
+        "retrieved_chunks": [
+          "testing_status::chunk-0",
+          "testing_status::chunk-1",
+          "project_overview::chunk-1"
+        ]
+      },
+      {
+        "id": "q10",
+        "question": "What are the high-priority JIRA issues for Project ABC?",
+        "expected_keywords": [
+          "JIRA",
+          "high priority"
+        ],
+        "hit": true,
+        "latency_ms": 616.7281999951228,
+        "retrieved_chunks": [
+          "jira_issues_open::chunk-0",
+          "jira_issues_high_priority::chunk-0",
+          "jira_issues_open::chunk-1"
+        ]
+      }
+    ]
+  },
+  {
+    "model": "local",
+    "hit_count": 10,
+    "total_questions": 10,
+    "hit_rate_percent": 100.0,
+    "latency_p50_ms": 267.1301999944262,
+    "query_tokens": 0,
+    "query_cost_usd": 0.0,
+    "details": [
+      {
+        "id": "q01",
+        "question": "What is the top priority risk in Project ABC?",
+        "expected_keywords": [
+          "R-001",
+          "Data migration",
+          "billing reconciliation"
+        ],
+        "hit": true,
+        "latency_ms": 12299.71769999247,
+        "retrieved_chunks": [
+          "project_governance::chunk-0",
+          "jira_issues_open::chunk-1",
+          "risk_register::chunk-0"
+        ]
+      },
+      {
+        "id": "q02",
+        "question": "What is the target production date for Project ABC?",
+        "expected_keywords": [
+          "December 18, 2026"
+        ],
+        "hit": true,
+        "latency_ms": 269.0504000056535,
+        "retrieved_chunks": [
+          "release_plan::chunk-0",
+          "project_status_report::chunk-0",
+          "project_status_report_previous::chunk-0"
+        ]
+      },
+      {
+        "id": "q03",
+        "question": "What is the current overall status of Project ABC?",
+        "expected_keywords": [
+          "Amber"
+        ],
+        "hit": true,
+        "latency_ms": 267.0187000185251,
+        "retrieved_chunks": [
+          "project_status_report_previous::chunk-0",
+          "project_status_report::chunk-0",
+          "release_plan::chunk-0"
+        ]
+      },
+      {
+        "id": "q04",
+        "question": "Who is the project manager for Project ABC?",
+        "expected_keywords": [
+          "Rony George"
+        ],
+        "hit": true,
+        "latency_ms": 267.0837999903597,
+        "retrieved_chunks": [
+          "resource_plan::chunk-0",
+          "project_overview::chunk-0",
+          "meeting_minutes_2026_09_15::chunk-0"
+        ]
+      },
+      {
+        "id": "q05",
+        "question": "What is the main objective of the Single Billing Transformation project?",
+        "expected_keywords": [
+          "Single Billing"
+        ],
+        "hit": true,
+        "latency_ms": 266.30249997833744,
+        "retrieved_chunks": [
+          "project_charter::chunk-0",
+          "project_overview::chunk-0",
+          "project_charter::chunk-1"
+        ]
+      },
+      {
+        "id": "q06",
+        "question": "What is the severity of risk R-001?",
+        "expected_keywords": [
+          "CRITICAL"
+        ],
+        "hit": true,
+        "latency_ms": 269.27719998639077,
+        "retrieved_chunks": [
+          "project_governance::chunk-1",
+          "risk_register::chunk-2",
+          "meeting_minutes_2026_09_15::chunk-1"
+        ]
+      },
+      {
+        "id": "q07",
+        "question": "What are the main dependencies for the Project ABC release?",
+        "expected_keywords": [
+          "data migration",
+          "UAT",
+          "billing"
+        ],
+        "hit": true,
+        "latency_ms": 267.17659999849275,
+        "retrieved_chunks": [
+          "project_dependencies::chunk-0",
+          "release_plan::chunk-0",
+          "project_overview::chunk-0"
+        ]
+      },
+      {
+        "id": "q08",
+        "question": "What is the planned production release date?",
+        "expected_keywords": [
+          "December 18, 2026"
+        ],
+        "hit": true,
+        "latency_ms": 265.18980000400916,
+        "retrieved_chunks": [
+          "release_plan::chunk-0",
+          "release_plan::chunk-1",
+          "project_status_report::chunk-0"
+        ]
+      },
+      {
+        "id": "q09",
+        "question": "What are the key testing activities currently in progress?",
+        "expected_keywords": [
+          "UAT",
+          "testing"
+        ],
+        "hit": true,
+        "latency_ms": 266.0252000205219,
+        "retrieved_chunks": [
+          "testing_status::chunk-0",
+          "meeting_minutes_2026_09_15::chunk-1",
+          "project_overview::chunk-1"
+        ]
+      },
+      {
+        "id": "q10",
+        "question": "What are the high-priority JIRA issues for Project ABC?",
+        "expected_keywords": [
+          "JIRA",
+          "high priority"
+        ],
+        "hit": true,
+        "latency_ms": 284.6915000118315,
+        "retrieved_chunks": [
+          "jira_issues_open::chunk-0",
+          "jira_issues_open::chunk-1",
+          "jira_issues_high_priority::chunk-0"
+        ]
+      }
+    ]
+  }
+]
