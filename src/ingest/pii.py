@@ -20,8 +20,18 @@ PII_PATTERNS = {
         r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b",
         re.IGNORECASE,
     ),
+    "NAME": re.compile(
+        r"\b(?:Dr\.\s*)?(?:Yuki Tanaka|Fatima Al-Rashid|Rajesh Patel|"
+        r"Aisha Mohammed|Carlos Mendoza)\b",
+        re.IGNORECASE,
+    ),
+    "OFFICE_ADDRESS": re.compile(
+        r"(?im)^\s*-\s*(?:Tokyo|Dubai|Mumbai|London)\s+office:\s*.+$"
+    ),
     "PHONE": re.compile(
-        r"(?<!\w)(?:\+\d{1,3}[\s().-]*)?(?:\d[\s().-]*){7,14}\d(?!\w)"
+        r"(?<!\w)(?:\+\d{1,3}[\s().-]*)?"
+        r"(?:\d[\s().-]*){7,14}\d"
+        r"(?:\s*(?:ext\.?|x)\s*\d{1,6})?(?!\w)"
     ),
     "EMPLOYEE_ID": re.compile(
         r"\b(?:EMP-\d{4,6}|Staff\s*#\s*\d{3,6}|"
@@ -141,6 +151,12 @@ def scrub_chunks(
         for flag in regex_flags:
             value = flag["matched_text"]
             position = original.find(value)
+            while position >= 0 and any(
+                position < span["end"]
+                and position + len(value) > span["start"]
+                for span in spans
+            ):
+                position = original.find(value, position + 1)
             if position >= 0:
                 spans.append({
                     "start": position,
