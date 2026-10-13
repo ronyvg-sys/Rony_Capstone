@@ -433,3 +433,28 @@ Field	Project ABC — Top Priority Risk Agent
 
 
 
+
+8. PII HANDLING AND KNOWN LIMITATIONS
+
+The AI Project Management Knowledge Assistant must protect personally
+identifiable information (PII) when processing project documents.
+
+The Week 8 PII stress-test findings are documented in:
+docs/adr/pii_stress_test_findings.md
+
+The current hybrid regex and Presidio-based scrubber has demonstrated
+detection of tested obfuscated email addresses, employee identifiers,
+IBANs, card suffixes, and several phone-number formats.
+
+Known limitations:
+- Person names are not consistently detected or redacted.
+- Complete postal addresses are not consistently redacted.
+- Some phone-number formats may be missed.
+- False positives can occur when ordinary text is classified as a person
+  or location.
+- Employee identifier patterns may require organization-specific tuning.
+
+The scrubber is experimental and is not yet suitable as the sole
+protection against PII disclosure in production. Sensitive information
+must be reviewed and the detection and redaction results validated
+before project documents are used by downstream AI components.

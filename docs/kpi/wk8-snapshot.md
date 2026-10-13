@@ -29,3 +29,17 @@ Increasing the Presidio confidence threshold to 0.5 removed the observed `US_DRI
 Retain the current pipeline as an experimental baseline. Improve spelled-out phone detection and address handling, add regression tests, and evaluate false positives before considering use with sensitive production documents.
 
 **Status:** Initial stress test completed; further tuning and validation required.
+
+### Latest validation notes
+
+The latest stress-test output confirms that the phone number and the extension
+must be assessed separately: the number was replaced with `[PHONE]`, while
+extension `4501` remained visible. The address tests also show that some
+street, building, and postcode details remain after geographic entities are
+redacted. The name `Aisha Mohammed` remained visible in the employee-identifier
+section, and the title `Dr.` remained visible before a redacted name.
+
+The regression suite passed 6/6 tests, and all 3 obfuscated-email tests passed.
+These results demonstrate the tested cases only; they do not establish complete
+PII protection. See `docs/adr/pii_stress_test_findings.md` for the item-level
+assessment and proposed fixes.
