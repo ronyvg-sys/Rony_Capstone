@@ -18,3 +18,6 @@ results.db
 
 # W5 temporary working files
 W5_Package/mp1_prompt_lab_working.ipynb
+
+# Week 7 virtual environment
+.venv-w7/
