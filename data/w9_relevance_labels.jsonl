@@ -1,0 +1,10 @@
+{"id":"q01","relevant_chunk_ids":["risk_register::chunk-0","risk_register::chunk-1","meeting_minutes_2026_09_29::chunk-0","project_status_report::chunk-0"]}
+{"id": "q02", "relevant_chunk_ids": ["release_plan::chunk-0", "project_charter::chunk-0", "project_overview::chunk-0"]}
+{"id": "q03", "relevant_chunk_ids": ["project_overview::chunk-0", "project_status_report::chunk-0"]}
+{"id": "q04", "relevant_chunk_ids": ["project_charter::chunk-0", "resource_plan::chunk-0"]}
+{"id": "q05", "relevant_chunk_ids": ["project_charter::chunk-0", "project_overview::chunk-0"]}
+{"id": "q06", "relevant_chunk_ids": ["risk_register::chunk-0", "risk_register::chunk-1"]}
+{"id": "q07", "relevant_chunk_ids": ["project_dependencies::chunk-0"]}
+{"id": "q08", "relevant_chunk_ids": ["release_plan::chunk-0", "project_charter::chunk-0", "project_overview::chunk-0"]}
+{"id": "q09", "relevant_chunk_ids": ["testing_status::chunk-0", "project_status_report::chunk-0"]}
+{"id": "q10", "relevant_chunk_ids": ["jira_issues_high_priority::chunk-0", "jira_issues_open::chunk-0"]}

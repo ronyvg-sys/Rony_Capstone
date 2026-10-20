@@ -1,0 +1,233 @@
+{
+  "description": "Initial Week 9 retrieval evaluation using provisional chunk relevance labels.",
+  "question_count": 10,
+  "relevance_labels": "data\\w9_relevance_labels.jsonl",
+  "summary": {
+    "dense_precision_at_3": 0.5333333333333333,
+    "dense_precision_at_5": 0.38,
+    "hybrid_rerank_precision_at_3": 0.6333333333333333,
+    "hybrid_rerank_precision_at_5": 0.44000000000000006
+  },
+  "results": [
+    {
+      "id": "q01",
+      "question": "What is the top priority risk in Project ABC?",
+      "dense_precision_at_3": 0.6666666666666666,
+      "dense_precision_at_5": 0.4,
+      "hybrid_rerank_precision_at_3": 1.0,
+      "hybrid_rerank_precision_at_5": 0.6,
+      "dense_top5": [
+        "risk_register::chunk-0",
+        "jira_issues_open::chunk-0",
+        "risk_register::chunk-1",
+        "project_governance::chunk-0",
+        "testing_status::chunk-0"
+      ],
+      "hybrid_rerank_top5": [
+        "meeting_minutes_2026_09_29::chunk-0",
+        "risk_register::chunk-1",
+        "project_status_report::chunk-0",
+        "jira_issues_high_priority::chunk-0",
+        "jira_issues_open::chunk-0"
+      ]
+    },
+    {
+      "id": "q02",
+      "question": "What is the target production date for Project ABC?",
+      "dense_precision_at_3": 0.6666666666666666,
+      "dense_precision_at_5": 0.4,
+      "hybrid_rerank_precision_at_3": 1.0,
+      "hybrid_rerank_precision_at_5": 0.6,
+      "dense_top5": [
+        "release_plan::chunk-0",
+        "project_overview::chunk-0",
+        "project_dependencies::chunk-0",
+        "project_status_report_previous::chunk-0",
+        "meeting_minutes_2026_09_29::chunk-0"
+      ],
+      "hybrid_rerank_top5": [
+        "project_charter::chunk-0",
+        "release_plan::chunk-0",
+        "project_overview::chunk-0",
+        "meeting_minutes_2026_09_29::chunk-0",
+        "project_status_report::chunk-0"
+      ]
+    },
+    {
+      "id": "q03",
+      "question": "What is the current overall status of Project ABC?",
+      "dense_precision_at_3": 0.3333333333333333,
+      "dense_precision_at_5": 0.4,
+      "hybrid_rerank_precision_at_3": 0.6666666666666666,
+      "hybrid_rerank_precision_at_5": 0.4,
+      "dense_top5": [
+        "project_status_report_previous::chunk-0",
+        "testing_status::chunk-0",
+        "project_status_report::chunk-0",
+        "project_overview::chunk-0",
+        "release_plan::chunk-0"
+      ],
+      "hybrid_rerank_top5": [
+        "project_overview::chunk-0",
+        "project_status_report::chunk-0",
+        "project_status_report_previous::chunk-0",
+        "meeting_minutes_2026_09_29::chunk-0",
+        "testing_status::chunk-0"
+      ]
+    },
+    {
+      "id": "q04",
+      "question": "Who is the project manager for Project ABC?",
+      "dense_precision_at_3": 0.3333333333333333,
+      "dense_precision_at_5": 0.4,
+      "hybrid_rerank_precision_at_3": 0.6666666666666666,
+      "hybrid_rerank_precision_at_5": 0.4,
+      "dense_top5": [
+        "resource_plan::chunk-0",
+        "project_governance::chunk-0",
+        "project_overview::chunk-0",
+        "release_plan::chunk-0",
+        "project_charter::chunk-0"
+      ],
+      "hybrid_rerank_top5": [
+        "project_charter::chunk-0",
+        "resource_plan::chunk-0",
+        "meeting_minutes_2026_09_15::chunk-0",
+        "project_overview::chunk-0",
+        "meeting_minutes_2026_09_29::chunk-0"
+      ]
+    },
+    {
+      "id": "q05",
+      "question": "What is the main objective of the Single Billing Transformation project?",
+      "dense_precision_at_3": 0.6666666666666666,
+      "dense_precision_at_5": 0.4,
+      "hybrid_rerank_precision_at_3": 0.6666666666666666,
+      "hybrid_rerank_precision_at_5": 0.4,
+      "dense_top5": [
+        "project_charter::chunk-0",
+        "project_overview::chunk-0",
+        "architecture_overview::chunk-0",
+        "project_charter::chunk-1",
+        "jira_issues_high_priority::chunk-0"
+      ],
+      "hybrid_rerank_top5": [
+        "project_charter::chunk-0",
+        "project_overview::chunk-0",
+        "project_charter::chunk-1",
+        "architecture_overview::chunk-0",
+        "testing_status::chunk-0"
+      ]
+    },
+    {
+      "id": "q06",
+      "question": "What is the severity of risk R-001?",
+      "dense_precision_at_3": 0.6666666666666666,
+      "dense_precision_at_5": 0.4,
+      "hybrid_rerank_precision_at_3": 0.3333333333333333,
+      "hybrid_rerank_precision_at_5": 0.4,
+      "dense_top5": [
+        "risk_register::chunk-1",
+        "risk_register::chunk-0",
+        "project_dependencies::chunk-0",
+        "jira_issues_open::chunk-0",
+        "project_status_report::chunk-1"
+      ],
+      "hybrid_rerank_top5": [
+        "project_status_report::chunk-0",
+        "meeting_minutes_2026_09_15::chunk-0",
+        "risk_register::chunk-1",
+        "meeting_minutes_2026_09_29::chunk-0",
+        "risk_register::chunk-0"
+      ]
+    },
+    {
+      "id": "q07",
+      "question": "What are the main dependencies for the Project ABC release?",
+      "dense_precision_at_3": 0.3333333333333333,
+      "dense_precision_at_5": 0.2,
+      "hybrid_rerank_precision_at_3": 0.3333333333333333,
+      "hybrid_rerank_precision_at_5": 0.2,
+      "dense_top5": [
+        "release_plan::chunk-0",
+        "project_dependencies::chunk-0",
+        "testing_status::chunk-0",
+        "project_governance::chunk-0",
+        "project_status_report_previous::chunk-0"
+      ],
+      "hybrid_rerank_top5": [
+        "project_dependencies::chunk-0",
+        "project_governance::chunk-0",
+        "resource_plan::chunk-0",
+        "project_overview::chunk-0",
+        "project_status_report_previous::chunk-0"
+      ]
+    },
+    {
+      "id": "q08",
+      "question": "What is the planned production release date?",
+      "dense_precision_at_3": 0.6666666666666666,
+      "dense_precision_at_5": 0.4,
+      "hybrid_rerank_precision_at_3": 0.6666666666666666,
+      "hybrid_rerank_precision_at_5": 0.6,
+      "dense_top5": [
+        "release_plan::chunk-0",
+        "project_overview::chunk-0",
+        "risk_register::chunk-1",
+        "project_dependencies::chunk-0",
+        "project_status_report_previous::chunk-0"
+      ],
+      "hybrid_rerank_top5": [
+        "release_plan::chunk-0",
+        "project_charter::chunk-0",
+        "meeting_minutes_2026_09_29::chunk-0",
+        "risk_register::chunk-1",
+        "project_overview::chunk-0"
+      ]
+    },
+    {
+      "id": "q09",
+      "question": "What are the key testing activities currently in progress?",
+      "dense_precision_at_3": 0.3333333333333333,
+      "dense_precision_at_5": 0.4,
+      "hybrid_rerank_precision_at_3": 0.3333333333333333,
+      "hybrid_rerank_precision_at_5": 0.4,
+      "dense_top5": [
+        "testing_status::chunk-0",
+        "project_status_report::chunk-1",
+        "project_status_report_previous::chunk-0",
+        "project_status_report::chunk-0",
+        "project_overview::chunk-0"
+      ],
+      "hybrid_rerank_top5": [
+        "testing_status::chunk-0",
+        "meeting_minutes_2026_09_15::chunk-0",
+        "project_status_report_previous::chunk-0",
+        "project_overview::chunk-0",
+        "project_status_report::chunk-0"
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "What are the high-priority JIRA issues for Project ABC?",
+      "dense_precision_at_3": 0.6666666666666666,
+      "dense_precision_at_5": 0.4,
+      "hybrid_rerank_precision_at_3": 0.6666666666666666,
+      "hybrid_rerank_precision_at_5": 0.4,
+      "dense_top5": [
+        "jira_issues_open::chunk-0",
+        "jira_issues_high_priority::chunk-0",
+        "testing_status::chunk-0",
+        "project_governance::chunk-0",
+        "release_plan::chunk-0"
+      ],
+      "hybrid_rerank_top5": [
+        "jira_issues_high_priority::chunk-0",
+        "jira_issues_open::chunk-0",
+        "meeting_minutes_2026_09_29::chunk-0",
+        "project_overview::chunk-0",
+        "project_governance::chunk-0"
+      ]
+    }
+  ]
+}
