@@ -2,17 +2,23 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+PACKAGE_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = PACKAGE_ROOT.parent
+
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+if str(PACKAGE_ROOT) not in sys.path:
+    sys.path.insert(0, str(PACKAGE_ROOT))
 
 from openai import OpenAI
-from src.rag.hybrid_rerank import HybridRetriever, load_index
+from rag.hybrid_rerank import HybridRetriever, load_index
 
-index = load_index("data/w9_embeddings_small.json")
+index = load_index(PACKAGE_ROOT / "data" / "w9_embeddings_small.json")
 retriever = HybridRetriever(index)
 client = OpenAI()
 
-with open("data/golden_set_full.jsonl", encoding="utf-8-sig") as f:
+with open(REPO_ROOT / "data" / "golden_set_full.jsonl", encoding="utf-8-sig") as f:
     questions = {
         item["id"]: item
         for item in (json.loads(line) for line in f)
