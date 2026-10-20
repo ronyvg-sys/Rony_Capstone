@@ -1,25 +1,27 @@
 """Compare dense retrieval with Week 9 hybrid retrieval and reranking."""
 
 import json
-from pathlib import Path
-
 import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
 from openai import OpenAI
 
-ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+PACKAGE_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = PACKAGE_ROOT.parent
 
-from src.rag.hybrid_rerank import HybridRetriever, load_index
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
-#ROOT = Path(__file__).resolve().parents[1]
-GOLDEN_PATH = ROOT / "data" / "golden_set_full.jsonl"
-LABELS_PATH = ROOT / "data" / "w9_relevance_labels.jsonl"
-INDEX_PATH = ROOT / "data" / "w9_embeddings_small.json"
-OUTPUT_PATH = ROOT / "data" / "w9_precision_results.json"
+if str(PACKAGE_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PACKAGE_ROOT / "src"))
+
+from rag.hybrid_rerank import HybridRetriever, load_index
+
+GOLDEN_PATH = REPO_ROOT / "data" / "golden_set_full.jsonl"
+LABELS_PATH = PACKAGE_ROOT / "data" / "w9_relevance_labels.jsonl"
+INDEX_PATH = PACKAGE_ROOT / "data" / "w9_embeddings_small.json"
+OUTPUT_PATH = PACKAGE_ROOT / "data" / "w9_precision_results.json"
 
 
 def read_jsonl(path):
@@ -33,7 +35,7 @@ def precision_at_k(results, relevant_ids, k):
 
 
 def main():
-    load_dotenv(ROOT / ".env")
+    load_dotenv(REPO_ROOT / ".env")
 
     questions = read_jsonl(GOLDEN_PATH)
     labels = {item["id"]: set(item["relevant_chunk_ids"])
@@ -116,7 +118,7 @@ def main():
             "chunk relevance labels."
         ),
         "question_count": len(results),
-        "relevance_labels": str(LABELS_PATH.relative_to(ROOT)),
+        "relevance_labels": str(LABELS_PATH.relative_to(PACKAGE_ROOT)),
         "summary": summary,
         "results": results,
     }
@@ -130,7 +132,7 @@ def main():
     for metric, value in summary.items():
         print(f"{metric}: {value:.3f}")
 
-    print(f"\nSaved results to: {OUTPUT_PATH.relative_to(ROOT)}")
+    print(f"\nSaved results to: {OUTPUT_PATH.relative_to(PACKAGE_ROOT)}")
 
 
 if __name__ == "__main__":

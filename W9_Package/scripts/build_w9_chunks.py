@@ -5,14 +5,16 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+PACKAGE_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = PACKAGE_ROOT.parent
+
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from src.rag.naive_rag import load_corpus
 
-CORPUS_DIR = ROOT / "data" / "corpus"
-OUTPUT_FILE = ROOT / "data" / "w9_common_chunks.json"
+CORPUS_DIR = REPO_ROOT / "data" / "corpus"
+OUTPUT_FILE = PACKAGE_ROOT / "data" / "w9_common_chunks.json"
 
 # Target size is approximate; complete paragraphs and table blocks are preferred.
 TARGET_CHUNK_SIZE = 900

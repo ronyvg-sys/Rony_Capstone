@@ -8,16 +8,16 @@ from pathlib import Path
 from dotenv import load_dotenv
 from openai import OpenAI
 
-ROOT = Path(__file__).resolve().parents[1]
-INPUT_FILE = ROOT / "data" / "w9_common_chunks.json"
-OUTPUT_FILE = ROOT / "data" / "w9_embeddings_small.json"
+PACKAGE_ROOT = Path(__file__).resolve().parents[1]
+INPUT_FILE = PACKAGE_ROOT / "data" / "w9_common_chunks.json"
+OUTPUT_FILE = PACKAGE_ROOT / "data" / "w9_embeddings_small.json"
 MODEL = "text-embedding-3-small"
 DIMENSION = 1536
 BATCH_SIZE = 100
 
 
 def main():
-    load_dotenv(ROOT / ".env")
+    load_dotenv(PACKAGE_ROOT.parent / ".env")
 
     if not os.getenv("OPENAI_API_KEY"):
         raise RuntimeError("OPENAI_API_KEY is not set.")

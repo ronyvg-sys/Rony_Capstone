@@ -1,20 +1,28 @@
+
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+PACKAGE_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = PACKAGE_ROOT.parent
+
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+if str(PACKAGE_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PACKAGE_ROOT / "src"))
 
 from dotenv import load_dotenv
 from openai import OpenAI
 
-from src.rag.hybrid_rerank import HybridRetriever, load_index
+from rag.hybrid_rerank import HybridRetriever, load_index
 
 
 def main():
-    load_dotenv()
+    load_dotenv(REPO_ROOT / ".env")
 
     client = OpenAI()
-    data = load_index(ROOT / "data" / "w9_embeddings_small.json")
+    data = load_index(PACKAGE_ROOT / "data" / "w9_embeddings_small.json")
+
     retriever = HybridRetriever(data)
 
     question = "What is the top priority risk in Project ABC?"
