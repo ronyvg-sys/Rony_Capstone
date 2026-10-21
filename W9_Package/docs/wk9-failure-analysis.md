@@ -6,6 +6,8 @@ This analysis investigates five questions selected from the Week 9 golden set ba
 
 The current evaluation, using the Week 9 embedding index and manually reviewed relevance labels, reports average Precision@3 of 0.633 and Precision@5 of 0.440 for hybrid retrieval plus reranking. The dense baseline using the same Week 9 index reports Precision@3 of 0.533 and Precision@5 of 0.380. The five questions below were selected to investigate weaker individual Precision@3 results and compare them with the retrieved evidence.
 
+**Selection note:** The refreshed evaluation produced no questions with hybrid retrieval plus reranking Precision@3 equal to 0.000. Therefore, this analysis examines five questions with weaker Precision@3 results as a fallback, with particular attention to Q06 and Q09, where diagnostic rankings show that relevant evidence was demoted by the cross-encoder. These cases do not meet the original zero-precision selection criterion and are reported as the closest available alternatives in the current ten-question evaluation.
+
 Precision@3 measures the proportion of the first three retrieved chunks that are labelled relevant. It does not directly measure answer correctness. A question can receive a low Precision@3 while still having sufficient evidence to answer correctly.
 
 Diagnostic categories
@@ -96,7 +98,7 @@ meeting\_minutes\_2026\_09\_15::chunk-0
 
 risk\_register::chunk-1
 
-Evidence assessment: The first two chunks discuss the risk but are not labelled relevant. The third chunk is labelled relevant and explicitly identifies R-001 as CRITICAL, explaining that both its probability and impact are HIGH.
+Evidence assessment: The exact severity evidence exists in both relevant risk-register chunks. Before reranking, risk_register::chunk-1 ranked 1st (RRF score 0.03279) and risk_register::chunk-0 ranked 2nd (RRF score 0.03200). After cross-encoder reranking, risk_register::chunk-1 fell to rank 3 (score 2.0159), while risk_register::chunk-0 fell to rank 5 (score -1.5679). Meanwhile, project_status_report::chunk-0 rose to rank 1 (score 2.6890), although it does not state the exact CRITICAL rating. The risk register confirms that R-001 is CRITICAL because both its probability and impact are HIGH. This is evidence of a reranking weakness: relevant evidence was retrieved but the most direct evidence was demoted.
 
 \*\*Preliminary diagnosis:\*\* Both relevant risk-register chunks were present before reranking. `risk\_register::chunk-1` moved from rank 1 to rank 3, while `risk\_register::chunk-0` moved from rank 2 to rank 5. This indicates a reranking weakness because the cross-encoder pushed the chunk explicitly stating the risk severity lower in the results. The final top three still contain `risk\_register::chunk-1`, which provides the answer.
 
@@ -148,7 +150,7 @@ meeting\_minutes\_2026\_09\_15::chunk-0
 
 project\_status\_report\_previous::chunk-0
 
-Evidence assessment: The testing status chunk is labelled relevant and reports that SIT is in progress, UAT preparation and criteria are being finalized, and performance testing is planned rather than currently in progress. The current project status report is labelled relevant but is not present in the top three. The other two retrieved chunks are not labelled relevant.
+Evidence assessment: The testing_status::chunk-0 remained at final rank 1 (cross-encoder score 0.7668) and reports that SIT is in progress, UAT preparation and entry criteria are being finalized, and performance testing is planned. The current project_status_report::chunk-0 was candidate rank 3 (RRF score 0.03101) but fell to final rank 5 (cross-encoder score -4.8543). The older project_status_report_previous::chunk-0 reached final rank 3 (score -2.0555). This suggests a ranking weakness for the current status report, while the primary testing-status evidence remains first.
 
 \*\*Preliminary diagnosis:\*\* `testing\_status::chunk-0` was ranked first before and after reranking, providing direct evidence about testing activities. However, `project\_status\_report::chunk-0` moved from candidate rank 3 to final rank 5, outside the final top three. This indicates a reranking weakness for the second labelled relevant chunk. The primary testing-status evidence remains ranked first.
 
@@ -160,7 +162,7 @@ The results show that Precision@3 must be interpreted alongside the retrieved ev
 
 - Q01, Q05, and Q07 each retrieve a directly relevant chunk in the top three. Their Precision@3 scores do not by themselves indicate an answer failure.
 
-- Q06 demonstrates a reranking weakness: both relevant risk-register chunks were present before reranking, but the cross-encoder moved them from candidate ranks 1 and 2 to final ranks 3 and 5.
+- Q06 demonstrates a reranking weakness: both relevant risk-register chunks were present before reranking, but the cross-encoder moved them from candidate ranks 1 and 2 to final ranks 3 and 5. In particular, risk_register::chunk-0, which explicitly gives the CRITICAL rating, fell to rank 5.
 
 - Q09 demonstrates a ranking weakness for the second relevant chunk: project_status_report::chunk-0 was candidate rank 3 but final rank 5. The primary testing-status chunk remained ranked first.
 

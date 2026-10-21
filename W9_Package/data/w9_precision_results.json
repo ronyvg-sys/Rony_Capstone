@@ -1,7 +1,7 @@
 {
-  "description": "Initial Week 9 retrieval evaluation using provisional chunk relevance labels.",
+  "description": "Week 9 retrieval evaluation using manually reviewed chunk relevance labels",
   "question_count": 10,
-  "relevance_labels": "data\\w9_relevance_labels.jsonl",
+  "relevance_labels": "data/w9_relevance_labels.jsonl",
   "summary": {
     "dense_precision_at_3": 0.5333333333333333,
     "dense_precision_at_5": 0.38,
