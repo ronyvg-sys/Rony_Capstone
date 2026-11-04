@@ -138,3 +138,134 @@ N/A at this stage, and establish thresholds from a clean baseline. I
 would bring the assistant back for M2 approval only after retrieval and
 cache correctness are fixed and the evaluation has been rerun with a
 valid, defensible methodology.
+
+## 5. Week 11 Practical Execution and Evaluation Results
+
+### 5.1 Execution Environment
+
+Successfully executed both Week 11 notebooks locally in Visual Studio Code.
+
+- Python version: 3.12.10
+- Virtual environment: `.venv-w7`
+- Pydantic version: 2.13.5
+- Golden dataset: `golden_set/capstone_v1.jsonl`
+- Golden dataset size: 20 test cases
+- Knowledge base version: `v2.w10`
+- Evaluation mode: `offline-proxy`
+
+The golden dataset contains:
+- Happy-path cases: 14
+- Harder cases: 4
+- Edge cases: 2
+
+### 5.2 RAG Evaluation Results
+
+Notebook 1 successfully loaded and validated the golden dataset, constructed evaluation rows, and demonstrated the four evaluation metrics.
+
+| RAG Evaluation Metric | Observed Score |
+|---|---:|
+| Faithfulness | 0.925 |
+| Answer Relevance | 0.731 |
+| Context Precision | 0.667 |
+| Context Recall | 0.944 |
+
+The lowest faithfulness scores were observed for:
+- `g005`: 0.318 – Happy-path case with degraded retrieval.
+- `g015`: 0.556 – Harder multi-hop retrieval case.
+- `g019`: 0.630 – Edge case requiring a graceful refusal.
+
+These cases highlight the importance of retrieval quality, evidence grounding, and appropriate refusal behaviour.
+
+**Evaluation limitation:** The notebooks were run in offline-proxy mode. These scores are deterministic token-overlap proxy measurements, not actual RAGAS evaluation scores. A live evaluation run is required to obtain genuine RAGAS measurements.
+
+### 5.3 Eight-KPI Evaluation Dashboard
+
+Notebook 2 generated the following KPI results:
+
+| KPI | Observed Result |
+|---|---:|
+| Task success rate | 80% |
+| Grounded response rate | 92.52% |
+| Hallucination rate | 7.48% |
+| Retrieval hit rate | 66.67% |
+| Tool success rate | N/A – Week 13 |
+| Cost per query | USD 0.000171 |
+| Latency P50 / P95 | 184 / 785 ms |
+| Escalation rate | N/A – Week 17 |
+
+Tool success and escalation are reported as N/A because these capabilities are scheduled for later course modules. Reporting them as zero would incorrectly imply that they were measured and failed.
+
+### 5.4 Cache Evaluation
+
+The evaluation also generated the following cache-related measurements:
+
+| Cache KPI | Observed Result |
+|---|---:|
+| Cache hit rate | 65% |
+| Cache-hit accuracy | 84.62% |
+| Cache-miss accuracy | 71.43% |
+
+The observed cache-hit accuracy was higher than cache-miss accuracy in this evaluation. This is an observed association and does not establish that caching itself improves answer quality; query characteristics and sample sizes should also be considered.
+
+### 5.5 Threshold Evaluation
+
+The notebook demonstrated the following threshold configuration:
+
+| RAG Metric | Observed Score | Threshold | Result |
+|---|---:|---:|---|
+| Faithfulness | 0.925 | 0.85 | PASS |
+| Answer Relevance | 0.731 | 0.85 | FAIL |
+| Context Precision | 0.667 | 0.75 | FAIL |
+| Context Recall | 0.944 | 0.80 | PASS |
+
+Two metrics passed and two failed.
+
+This demonstrates how evaluation thresholds can identify areas requiring improvement. However, because the current results are offline proxies, these pass/fail outcomes are illustrative and should not be treated as final production acceptance criteria. Thresholds should be validated using live evaluation results.
+
+### 5.6 SQLite Results Validation
+
+The Notebook 2 execution created a local SQLite database:
+
+`W11_Package/Demo_Files/results.db`
+
+The database contains an `eval_results` table with 20 evaluation records.
+
+The table captures:
+- Run label
+- Knowledge base version
+- Golden test case ID
+- Cache-hit indicator
+- Latency
+- Query cost
+- Record creation timestamp
+
+The database validation confirmed:
+- Run label: `wk11-baseline`
+- Knowledge base version: `v2.w10`
+- Total evaluation records: 20
+- Cache hits: 13
+- Average latency: 394.35 ms
+- Average cost per query: USD 0.000171
+
+The average latency stored in SQLite is a different statistic from the P50/P95 latency reported in the dashboard. These values are therefore not contradictory.
+
+The database stores per-query operational evaluation data; it does not separately store all four aggregate RAG evaluation metrics or the complete KPI dashboard.
+
+**Note:** `results.db` is retained locally and is not included in the GitHub repository.
+
+### 5.7 Key Learnings
+
+The Week 11 practical exercises provided hands-on experience with:
+
+1. Building and validating a golden evaluation dataset.
+2. Understanding faithfulness, answer relevance, context precision, and context recall.
+3. Using an evaluation harness to assess RAG responses.
+4. Understanding LLM-as-a-Judge scoring and mandatory success criteria.
+5. Designing an eight-KPI evaluation dashboard.
+6. Evaluating cache hit rate, cache-hit accuracy, and cache-miss accuracy.
+7. Configuring metric thresholds and identifying failed quality checks.
+8. Persisting per-query evaluation results in SQLite.
+9. Distinguishing offline-proxy evaluation from actual live RAGAS measurements.
+10. Recognising the importance of consistent knowledge base versioning and reproducible evaluation.
+
+**Overall outcome:** Both Week 11 notebooks were executed successfully. The exercises demonstrated how to evaluate RAG system quality, monitor operational KPIs, assess caching behaviour, and persist evaluation results for subsequent analysis. Live RAGAS evaluation remains a separate step before treating these baseline measurements as production-quality evidence.
