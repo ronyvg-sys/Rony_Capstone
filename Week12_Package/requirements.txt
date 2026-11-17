@@ -1,0 +1,10 @@
+# AI-RAG Week 12 — RAG Debugging Lab (M2)
+# The debugging drill and its tests are stdlib-only; pytest is the only install.
+# The M2 lab reuses your existing Phase 2 stack (from W6–W11) for the live steps.
+
+# --- drill + tests (all you need for smoke_test.sh) ---
+pytest>=7.4,<9.0
+
+# --- carried from Phase 2 for the live M2 steps (API + eval) ---
+# fastapi, uvicorn        # your W5 service
+# ragas, qdrant-client    # your W7–W11 eval + retrieval
